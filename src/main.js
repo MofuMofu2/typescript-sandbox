@@ -28,19 +28,21 @@ function result() {
 
   const replaceX = newStory.replaceAll(":insertx:", xItem);
   const replaceY = replaceX.replace(":inserty:", yItem);
-  const replaceZ = replaceY.replace(":insertz:", zItem)
+  let replaceZ = replaceY.replace(":insertz:", zItem)
 
   if(customName.value !== '') {
     const name = customName.value;
-
+    replaceZ = replaceZ.replace("Bob", name)
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(300);
-    const temperature =  Math.round(94);
+    const weight = `${Math.round(300 * 0.071429)} stone`;
+    const temperature = `${Math.round((94 - 32) / 1.8)} centigrade`;
 
+    replaceZ = replaceZ.replace("'94 farenheit'", temperature);
+    replaceZ = replaceZ.replace("300 pounds", weight);
   }
 
-  story.textContent = "";
+  story.textContent = replaceZ;
   story.style.visibility = 'visible';
 }

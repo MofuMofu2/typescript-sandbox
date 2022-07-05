@@ -39,7 +39,7 @@ function result() {
     const weight = `${Math.round(300 * 0.071429)} stone`;
     const temperature = `${Math.round((94 - 32) / 1.8)} centigrade`;
 
-    replaceZ = replaceZ.replace("'94 farenheit'", temperature);
+    replaceZ = replaceZ.replace("94 fahrenheit", temperature);
     replaceZ = replaceZ.replace("300 pounds", weight);
   }
 

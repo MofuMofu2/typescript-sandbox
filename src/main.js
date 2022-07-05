@@ -26,6 +26,10 @@ function result() {
   const yItem = randomValueFromArray(insertY);
   const zItem = randomValueFromArray(insertZ);
 
+  const replaceX = newStory.replaceAll(":insertx:", xItem);
+  const replaceY = replaceX.replace(":inserty:", yItem);
+  const replaceZ = replaceY.replace(":insertz:", zItem)
+
   if(customName.value !== '') {
     const name = customName.value;
 
@@ -37,6 +41,6 @@ function result() {
 
   }
 
-  story.textContent = ;
+  story.textContent = "";
   story.style.visibility = 'visible';
 }

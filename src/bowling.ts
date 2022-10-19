@@ -1,3 +1,3 @@
-export const bowling = () => {
-  return 'test'
+export const frame = (first: number, second: number) => {
+  return first + second
 }

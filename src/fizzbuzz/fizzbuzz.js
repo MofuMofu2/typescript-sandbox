@@ -6,8 +6,7 @@ const buzz = (n) => {
   return n % 5 === 0
 }
 
-// テストケースで検査する関数はfizzbuzzのみにしておく
-const fizzbuzz = (n) => {
+const judgeFizzBuzz = (n) => {
   if (fizz(n) && buzz(n)) {
     return 'FizzBuzz'
   } else if (fizz(n)) {
@@ -15,8 +14,16 @@ const fizzbuzz = (n) => {
   } else if (buzz(n)) {
     return 'Buzz'
   } else {
-    return n
+    return n.toString()
   }
+}
+
+const fizzbuzz = (n) => {
+  const param = []
+  for (let i = 1; i <= n; i++) {
+    param.push(judgeFizzBuzz(i))
+  }
+  return param
 }
 
 exports.fizzbuzz = fizzbuzz

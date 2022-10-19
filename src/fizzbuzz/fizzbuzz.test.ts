@@ -1,4 +1,4 @@
-const { fizzbuzz } = require("./fizzbuzz");
+import { fizzbuzz } from "../fizzbuzz";
 
 test('1から15まで繰り返しFizzBuzzする', () => {
   expect(fizzbuzz(15)).toEqual(

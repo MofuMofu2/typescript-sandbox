@@ -1,8 +1,8 @@
-import { frame, frames, spare, strike } from "../bowling";
+import { frameScore, frames, spare, strike } from "../bowling";
 
 test("ストライクでもスペアでもないときは2投分を足し算した結果を返す", () => {
   expect(
-    frame({
+    frameScore({
       first: 6,
       second: 3,
     })

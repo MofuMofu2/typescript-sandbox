@@ -4,14 +4,14 @@ type Frame = {
   third?: number;
 };
 
-export const frame = (frame: Frame) => {
+export const frameScore = (frame: Frame) => {
   return frame.first + frame.second;
 };
 
 export const frames = (frames: Frame[]) => {
   let score = 0;
   for (const pins of frames) {
-    score += frame(pins);
+    score += frameScore(pins);
   }
   return score;
 };
@@ -22,12 +22,10 @@ export const spare = (pins: Frame[]) => {
   for (const pin of pins) {
     if (isSpare) {
       score += pin.first;
-    }
     isSpare = false;
-    const knockedPins = frame(pin);
-    if (knockedPins === 10) {
-      isSpare = true;
     }
+    const knockedPins = frameScore(pin);
+    isSpare = knockedPins === 10;
     score += knockedPins;
   }
   return score;

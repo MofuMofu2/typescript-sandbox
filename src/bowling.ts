@@ -15,6 +15,19 @@ export const frames = (frames: Frame[]) => {
   return score;
 };
 
-export const spare = (frames: Frame[]) => {
-  return 26;
+export const spare = (pins: Frame[]) => {
+  let score = 0;
+  let isSpare = false;
+  for (const pin of pins) {
+    if (isSpare) {
+      score += pin.first;
+    }
+    isSpare = false;
+    const knockedPins = frame(pin);
+    if (knockedPins === 10) {
+      isSpare = true;
+    }
+    score += knockedPins;
+  }
+  return score;
 };

@@ -33,5 +33,18 @@ export const spare = (pins: Frame[]) => {
 };
 
 export const strike = (pins: Frame[]) => {
-  return 35;
+  let score = 0;
+  let isStrike = false;
+  for (const pin of pins) {
+    if (isStrike) {
+      score += frame(pin);
+    }
+    isStrike = false;
+    const knockedPins = frame(pin);
+    if (pin.first === 10) {
+      isStrike = true;
+    }
+    score += knockedPins;
+  }
+  return score;
 };

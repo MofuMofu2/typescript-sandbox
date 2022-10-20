@@ -9,8 +9,8 @@ export const frame = (frame: Frame) => {
 
 export const frames = (frames: Frame[]) => {
   let score = 0;
-  for (const frame of frames) {
-    score += frame.first + frame.second;
+  for (const pins of frames) {
+    score += frame(pins);
   }
   return score;
 };

@@ -1,7 +1,12 @@
 import { frame, frames, spare } from "../bowling";
 
 test("ストライクでもスペアでもないときは2投分を足し算した結果を返す", () => {
-  expect(frame(6, 3)).toBe(9);
+  expect(
+    frame({
+      first: 6,
+      second: 3,
+    })
+  ).toBe(9);
 });
 
 test("複数フレームの足し算した結果を返す", () => {

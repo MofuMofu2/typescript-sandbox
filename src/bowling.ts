@@ -3,8 +3,8 @@ type Frame = {
   second: number;
 };
 
-export const frame = (first: number, second: number) => {
-  return first + second;
+export const frame = (frame: Frame) => {
+  return frame.first + frame.second;
 };
 
 export const frames = (frames: Frame[]) => {

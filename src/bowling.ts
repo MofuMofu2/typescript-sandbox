@@ -15,6 +15,6 @@ export const frames = (frames: Frame[]) => {
   return score;
 };
 
-export const spare = (frames: [number[], number[], number[]]) => {
+export const spare = (frames: Frame[]) => {
   return 26;
 };

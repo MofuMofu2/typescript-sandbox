@@ -1,27 +1,27 @@
 const fizz = (n: number) => {
-  return n % 3 === 0
-}
+  return n % 3 === 0;
+};
 
 const buzz = (n: number) => {
-  return n % 5 === 0
-}
+  return n % 5 === 0;
+};
 
 const judgeFizzBuzz = (n: number) => {
   if (fizz(n) && buzz(n)) {
-    return 'FizzBuzz'
+    return "FizzBuzz";
   } else if (fizz(n)) {
-    return 'Fizz'
+    return "Fizz";
   } else if (buzz(n)) {
-    return 'Buzz'
+    return "Buzz";
   } else {
-    return n.toString()
+    return n.toString();
   }
-}
+};
 
 export const fizzbuzz = (n: number) => {
-  const param: string[]  = []
+  const param: string[] = [];
   for (let i = 1; i <= n; i++) {
-    param.push(judgeFizzBuzz(i))
+    param.push(judgeFizzBuzz(i));
   }
-  return param
-}
+  return param;
+};

@@ -1,8 +1,13 @@
+type Frame = {
+  first: number;
+  second: number;
+};
+
 export const frame = (first: number, second: number) => {
   return first + second;
 };
 
-export const frames = (frames: [number[], number[]]) => {
+export const frames = (frames: Frame[]) => {
   return 17;
 };
 

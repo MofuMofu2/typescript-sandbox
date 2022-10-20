@@ -22,7 +22,7 @@ export const spare = (pins: Frame[]) => {
   for (const pin of pins) {
     if (isSpare) {
       score += pin.first;
-    isSpare = false;
+      isSpare = false;
     }
     const knockedPins = frameScore(pin);
     isSpare = knockedPins === 10;
@@ -33,17 +33,20 @@ export const spare = (pins: Frame[]) => {
 
 export const strike = (pins: Frame[]) => {
   let score = 0;
-  let isStrike = false;
-  for (const pin of pins) {
-    if (isStrike) {
-      score += frame(pin);
-    }
-    isStrike = false;
-    const knockedPins = frame(pin);
-    if (pin.first === 10) {
-      isStrike = true;
+  for (let frame = 0; frame < pins.length; frame++) {
+    let knockedPins = frameScore(pins[frame]);
+    const nextFrame = frame + 1
+    const twoFrame = frame + 2
+    if (pins[frame].first === 10) {
+      if(pins[nextFrame].first === 10) {
+        knockedPins += pins[nextFrame].first + pins[twoFrame].first
+      }
+      else {
+        knockedPins += frameScore(pins[nextFrame]);
+      }
     }
     score += knockedPins;
   }
+
   return score;
 };

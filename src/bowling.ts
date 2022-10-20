@@ -1,6 +1,7 @@
 type Frame = {
   first: number;
   second: number;
+  third?: number;
 };
 
 export const frame = (frame: Frame) => {

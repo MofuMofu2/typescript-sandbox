@@ -61,3 +61,51 @@ test("ストライクの場合、次フレームの2投分を足し算する", (
     ])
   ).toBe(35);
 });
+
+test("10フレーム全てストライクだと300点", () => {
+  expect(
+    strike([
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 10,
+        second: 10,
+        third: 10, // 10フレーム目はストライクをとると3回まで投げられる
+      },
+    ])
+  ).toBe(300);
+});

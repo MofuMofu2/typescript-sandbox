@@ -8,7 +8,11 @@ export const frame = (first: number, second: number) => {
 };
 
 export const frames = (frames: Frame[]) => {
-  return 17;
+  let score = 0;
+  for (const frame of frames) {
+    score += frame.first + frame.second;
+  }
+  return score;
 };
 
 export const spare = (frames: [number[], number[], number[]]) => {

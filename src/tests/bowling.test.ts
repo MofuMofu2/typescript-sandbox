@@ -1,4 +1,4 @@
-import { frame, frames, spare } from "../bowling";
+import { frame, frames, spare, strike } from "../bowling";
 
 test("ストライクでもスペアでもないときは2投分を足し算した結果を返す", () => {
   expect(
@@ -41,4 +41,23 @@ test("スペアの場合、次フレームの1投目を足し算する", () => {
       },
     ])
   ).toBe(34);
+});
+
+test("ストライクの場合、次フレームの2投分を足し算する", () => {
+  expect(
+    strike([
+      {
+        first: 6,
+        second: 3,
+      },
+      {
+        first: 10,
+        second: 0,
+      },
+      {
+        first: 7,
+        second: 1,
+      },
+    ])
+  ).toBe(35);
 });

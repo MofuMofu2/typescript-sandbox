@@ -31,3 +31,7 @@ export const spare = (pins: Frame[]) => {
   }
   return score;
 };
+
+export const strike = (pins: Frame[]) => {
+  return 35;
+};

@@ -33,24 +33,27 @@ const isStrike = (firstShot: number) => {
 };
 
 const strike = (pins: Frame[], frame: number) => {
-  let knockedPins = 0;
   const nextFrame = frame + 1;
   const twoFrame = frame + 2;
 
   // 10フレーム目は最大3投できるため、最後のフレームの結果を全て足して返す
   if (frame === pins.length - 1) {
-    let lastFrame = 0
+    let lastFrame = 0;
     for (const value of Object.values(pins[pins.length - 1])) {
-      lastFrame += value
+      lastFrame += value;
     }
-    return lastFrame
-  } else if (isStrike(pins[nextFrame].first) && frame === pins.length - 2) {
-    // 9投目
-    knockedPins += pins[pins.length - 1].first + pins[pins.length - 1].second;
-  } else if (isStrike(pins[nextFrame].first)) {
-    knockedPins += pins[nextFrame].first + pins[twoFrame].first;
-  } else {
-    knockedPins += frameScore(pins[nextFrame]);
+    return lastFrame;
   }
-  return knockedPins;
+
+  // 9フレーム目は10フレーム目の初回と2投目の結果を足す
+  if (isStrike(pins[nextFrame].first) && frame === pins.length - 2) {
+    return pins[pins.length - 1].first + pins[pins.length - 1].second;
+  }
+
+  // 1〜8フレーム目は次のフレームの1投目と2投目の結果を足す
+  if (isStrike(pins[nextFrame].first)) {
+    return pins[nextFrame].first + pins[twoFrame].first;
+  }
+
+  return frameScore(pins[nextFrame]);
 };

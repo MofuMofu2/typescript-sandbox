@@ -37,12 +37,13 @@ const strike = (pins: Frame[], frame: number) => {
   const nextFrame = frame + 1;
   const twoFrame = frame + 2;
 
-  // 10回目かどうか判断する
+  // 10フレーム目は最大3投できるため、最後のフレームの結果を全て足して返す
   if (frame === pins.length - 1) {
-    knockedPins =
-      pins[pins.length - 1].first +
-      pins[pins.length - 1].second +
-      pins[pins.length - 1].third!;
+    let lastFrame = 0
+    for (const value of Object.values(pins[pins.length - 1])) {
+      lastFrame += value
+    }
+    return lastFrame
   } else if (isStrike(pins[nextFrame].first) && frame === pins.length - 2) {
     // 9投目
     knockedPins += pins[pins.length - 1].first + pins[pins.length - 1].second;

@@ -4,7 +4,7 @@ type Frame = {
   third?: number;
 };
 
-export const frameScore = (frame: Frame) => {
+const frameScore = (frame: Frame) => {
   return frame.first + frame.second;
 };
 

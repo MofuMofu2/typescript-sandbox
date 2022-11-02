@@ -1,15 +1,6 @@
-import { frameScore, frames, spare, strike } from "../bowling";
+import { frames, spare, strike } from "../bowling";
 
 test("ストライクでもスペアでもないときは2投分を足し算した結果を返す", () => {
-  expect(
-    frameScore({
-      first: 6,
-      second: 3,
-    })
-  ).toBe(9);
-});
-
-test("複数フレームの足し算した結果を返す", () => {
   expect(
     frames([
       {

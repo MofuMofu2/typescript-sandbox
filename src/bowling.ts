@@ -8,21 +8,6 @@ const frameScore = (frame: Frame) => {
   return frame.first + frame.second;
 };
 
-export const spare = (pins: Frame[]) => {
-  let score = 0;
-  let isSpare = false;
-  for (const pin of pins) {
-    if (isSpare) {
-      score += pin.first;
-      isSpare = false;
-    }
-    const knockedPins = frameScore(pin);
-    isSpare = knockedPins === 10;
-    score += knockedPins;
-  }
-  return score;
-};
-
 export const strike = (pins: Frame[]) => {
   let score = 0;
   for (let frame = 0; frame < pins.length; frame++) {
@@ -42,6 +27,8 @@ export const strike = (pins: Frame[]) => {
       } else {
         knockedPins += frameScore(pins[nextFrame]);
       }
+    } else if (knockedPins === 10) {
+      score += pins[nextFrame].first;
     }
     score += knockedPins;
   }

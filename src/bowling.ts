@@ -8,14 +8,6 @@ const frameScore = (frame: Frame) => {
   return frame.first + frame.second;
 };
 
-export const frames = (frames: Frame[]) => {
-  let score = 0;
-  for (const pins of frames) {
-    score += frameScore(pins);
-  }
-  return score;
-};
-
 export const spare = (pins: Frame[]) => {
   let score = 0;
   let isSpare = false;

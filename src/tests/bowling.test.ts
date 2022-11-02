@@ -1,8 +1,8 @@
-import { frames, spare, strike } from "../bowling";
+import { spare, strike } from "../bowling";
 
 test("ストライクでもスペアでもないときは2投分を足し算した結果を返す", () => {
   expect(
-    frames([
+    spare([
       {
         first: 6,
         second: 3,

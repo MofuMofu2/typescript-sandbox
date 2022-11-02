@@ -4,10 +4,6 @@ type Frame = {
   third?: number;
 };
 
-const frameScore = (frame: Frame) => {
-  return frame.first + frame.second;
-};
-
 export const strike = (pins: Frame[]) => {
   let score = 0;
   for (let frame = 0; frame < pins.length; frame++) {
@@ -15,14 +11,14 @@ export const strike = (pins: Frame[]) => {
     const nextFrame = frame + 1;
     const twoFrame = frame + 2;
 
-    if (pins[frame].first === 10) {
+    if (isStrike(pins[frame].first)) {
       // 10回目かどうか判断する
       if (frame === 9) {
         knockedPins = pins[9].first + pins[9].second + pins[9].third!;
-      } else if (pins[nextFrame].first === 10 && frame === 8) {
+      } else if (isStrike(pins[nextFrame].first) && frame === 8) {
         // 9投目
         knockedPins += pins[9].first + pins[9].second;
-      } else if (pins[nextFrame].first === 10) {
+      } else if (isStrike(pins[nextFrame].first)) {
         knockedPins += pins[nextFrame].first + pins[twoFrame].first;
       } else {
         knockedPins += frameScore(pins[nextFrame]);
@@ -34,4 +30,12 @@ export const strike = (pins: Frame[]) => {
   }
 
   return score;
+};
+
+const frameScore = (frame: Frame) => {
+  return frame.first + frame.second;
+};
+
+const isStrike = (firstShot: number) => {
+  return firstShot === 10;
 };

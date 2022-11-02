@@ -13,11 +13,11 @@ export const strike = (pins: Frame[]) => {
 
     if (isStrike(pins[frame].first)) {
       // 10回目かどうか判断する
-      if (frame === 9) {
-        knockedPins = pins[9].first + pins[9].second + pins[9].third!;
-      } else if (isStrike(pins[nextFrame].first) && frame === 8) {
+      if (frame === pins.length - 1) {
+        knockedPins = pins[pins.length - 1].first + pins[pins.length - 1].second + pins[pins.length - 1].third!;
+      } else if (isStrike(pins[nextFrame].first) && frame === (pins.length - 2)) {
         // 9投目
-        knockedPins += pins[9].first + pins[9].second;
+        knockedPins += pins[pins.length - 1].first + pins[pins.length - 1].second;
       } else if (isStrike(pins[nextFrame].first)) {
         knockedPins += pins[nextFrame].first + pins[twoFrame].first;
       } else {

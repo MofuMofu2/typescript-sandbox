@@ -8,7 +8,6 @@ export const calcScore = (pins: Frame[]) => {
   let score = 0;
   for (let frame = 0; frame < pins.length; frame++) {
     let knockedPins = frameScore(pins[frame]);
-    const nextFrame = frame + 1;
     if (isStrike(pins[frame].first)) {
       if (frame === pins.length - 1) {
         knockedPins = strike(pins, frame);
@@ -16,7 +15,7 @@ export const calcScore = (pins: Frame[]) => {
         knockedPins += strike(pins, frame);
       }
     } else if (knockedPins === 10) {
-      score += pins[nextFrame].first;
+      knockedPins += pins[frame + 1].first;
     }
     score += knockedPins;
   }

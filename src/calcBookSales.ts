@@ -11,5 +11,5 @@ export const countBookSales = (arg: FanBook) => {
 };
 
 export const calcBookSales = (arg: FanBook, salesCount: number) => {
-  return 59000;
+  return countBookSales(arg) * arg.price;
 };

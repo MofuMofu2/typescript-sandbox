@@ -6,10 +6,10 @@ type FanBook = {
   price: number;
 };
 
-export const countBookSales = (arg: FanBook) => {
-  return arg.total - (arg.sample + arg.stock + arg.market);
+export const countBookSales = (bookSale: FanBook) => {
+  return bookSale.total - (bookSale.sample + bookSale.stock + bookSale.market);
 };
 
-export const calcBookSales = (arg: FanBook, salesCount: number) => {
-  return countBookSales(arg) * arg.price;
+export const calcBookSales = (bookSale: FanBook) => {
+  return countBookSales(bookSale) * bookSale.price;
 };

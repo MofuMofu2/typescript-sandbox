@@ -6,8 +6,6 @@ type FanBook = {
   price: number;
 };
 
-type FanBooks = FanBook[];
-
 export const countBookSales = (bookSale: FanBook) => {
   return bookSale.total - forSaleBooks(bookSale);
 };

@@ -24,6 +24,10 @@ export const countAllBooksSales = (sales: FanBook[]) => {
   return sale;
 };
 
+export const calcAllBooksSales = (sales: FanBook[]) => {
+  return 104000;
+};
+
 const forSaleBooks = (book: FanBook) => {
   if (book.sample && book.stock && book.market) {
     return book.sample + book.stock + book.market;

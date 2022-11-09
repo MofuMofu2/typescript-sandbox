@@ -26,7 +26,7 @@ const fanbooks = [
   },
 ];
 
-describe("一冊の同人誌の売り上げ数と売り上げ額を計算する", () => {
+describe("一冊の同人誌の売り上げ数を計算する", () => {
   test("売り上げ数 = 持ち込み数 - (無配 + 残り + 通販サイト送付分）", () => {
     expect(countBookSales(fanbooks[0])).toBe(59);
   });
@@ -81,7 +81,9 @@ describe("一冊の同人誌の売り上げ数と売り上げ額を計算する"
       })
     ).toBe(0);
   });
+});
 
+describe("一冊の本に関する売り上げ数を計算する", () => {
   test("売り上げ金額 = 売り上げ数 * 売価", () => {
     expect(calcBookSales(fanbooks[0])).toBe(59000);
   });

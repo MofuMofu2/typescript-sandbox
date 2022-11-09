@@ -90,6 +90,9 @@ describe("一冊の本に関する売り上げ数を計算する", () => {
 
 describe("複数の同人誌の売り上げ額を計算する", () => {
   test("売り上げ金額の総額を計算して返す", () => {
-    expect(calcAllBooksSales(fanbooks)).toBe(104000);
+    expect(calcAllBooksSales(fanbooks)).toEqual({
+      books: 114,
+      sales: 104000,
+    });
   });
 });

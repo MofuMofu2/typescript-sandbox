@@ -35,8 +35,12 @@ const forSaleBooks = (book: FanBook) => {
     return book.sample + book.stock + book.market;
   } else if (book.sample && book.stock) {
     return book.sample + book.stock;
+  } else if (book.stock && book.market) {
+    return book.stock + book.market;
   } else if (book.sample) {
     return book.sample;
+  } else if (book.market) {
+    return book.market;
   } else {
     return 0;
   }

@@ -31,6 +31,57 @@ describe("一冊の同人誌の売り上げ数と売り上げ額を計算する"
     expect(countBookSales(fanbooks[0])).toBe(59);
   });
 
+  test("売り上げ数の計算：無配が存在しない場合", () => {
+    expect(
+      countBookSales({
+        total: 306,
+        stock: 80,
+        market: 164,
+        price: 1000,
+      })
+    ).toBe(62);
+  });
+
+  test("売り上げ数の計算：在庫を全て通販に送った場合", () => {
+    expect(
+      countBookSales({
+        total: 306,
+        market: 164,
+        price: 1000,
+      })
+    ).toBe(142);
+  });
+
+  test("売り上げ数の計算：全て売れた場合", () => {
+    expect(
+      countBookSales({
+        total: 306,
+        sample: 3,
+        price: 1000,
+      })
+    ).toBe(303);
+  });
+
+  test("売り上げ数の計算：無配も含めて全て売れた場合", () => {
+    expect(
+      countBookSales({
+        total: 306,
+        price: 1000,
+      })
+    ).toBe(306);
+  });
+
+  test("売り上げ数の計算：何も売れなかったとき", () => {
+    expect(
+      countBookSales({
+        total: 306,
+        sample: 3,
+        stock: 303,
+        price: 1000,
+      })
+    ).toBe(0);
+  });
+
   test("売り上げ金額 = 売り上げ数 * 売価", () => {
     expect(calcBookSales(fanbooks[0])).toBe(59000);
   });

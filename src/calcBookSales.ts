@@ -6,28 +6,22 @@ type FanBook = {
   price: number;
 };
 
-export const countBookSales = (bookSale: FanBook) => {
-  return bookSale.total - forSaleBooks(bookSale);
-};
+export const countBookSales = (bookSale: FanBook) =>
+  bookSale.total - forSaleBooks(bookSale);
 
-export const calcBookSales = (bookSale: FanBook) => {
-  return countBookSales(bookSale) * bookSale.price;
-};
-
-export const countAllBooksSales = (sales: FanBook[]) => {
-  let sale = 0;
-  for (const book of sales) {
-    sale += countBookSales(book);
-  }
-  return sale;
-};
+export const calcBookSales = (bookSale: FanBook) =>
+  countBookSales(bookSale) * bookSale.price;
 
 export const calcAllBooksSales = (sales: FanBook[]) => {
-  let sale = 0;
+  const allSales = {
+    books: 0,
+    sales: 0,
+  };
   for (const book of sales) {
-    sale += calcBookSales(book);
+    allSales.books += countBookSales(book);
+    allSales.sales += calcBookSales(book);
   }
-  return sale;
+  return allSales;
 };
 
 const forSaleBooks = (book: FanBook) => {
@@ -35,8 +29,12 @@ const forSaleBooks = (book: FanBook) => {
     return book.sample + book.stock + book.market;
   } else if (book.sample && book.stock) {
     return book.sample + book.stock;
+  } else if (book.stock && book.market) {
+    return book.stock + book.market;
   } else if (book.sample) {
     return book.sample;
+  } else if (book.market) {
+    return book.market;
   } else {
     return 0;
   }

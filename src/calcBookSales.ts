@@ -29,21 +29,12 @@ export const calcAllBooksSales = (sales: FanBook[]) => {
 };
 
 const forSaleBooks = (book: FanBook) => {
-  if (book.events) {
-    if (book.events.sample && book.events.stock && book.events.market) {
-      return book.events.sample + book.events.stock + book.events.market;
-    } else if (book.events.sample && book.events.stock) {
-      return book.events.sample + book.events.stock;
-    } else if (book.events.stock && book.events.market) {
-      return book.events.stock + book.events.market;
-    } else if (book.events.sample) {
-      return book.events.sample;
-    } else if (book.events.market) {
-      return book.events.market;
-    } else {
-      return 0;
-    }
-  } else {
-    return 0;
-  }
+  return book.events ? calcStock(book.events) : 0;
+};
+
+const calcStock = (events: EventStock) => {
+  return Object.values(events).reduce(
+    (previous, current) => previous + current,
+    0
+  );
 };

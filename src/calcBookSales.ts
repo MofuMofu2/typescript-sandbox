@@ -1,9 +1,13 @@
 type FanBook = {
   total: number;
+  price: number;
+  events?: EventStock;
+};
+
+type EventStock = {
   sample?: number;
   stock?: number;
   market?: number;
-  price: number;
 };
 
 export const countBookSales = (bookSale: FanBook) =>
@@ -25,17 +29,12 @@ export const calcAllBooksSales = (sales: FanBook[]) => {
 };
 
 const forSaleBooks = (book: FanBook) => {
-  if (book.sample && book.stock && book.market) {
-    return book.sample + book.stock + book.market;
-  } else if (book.sample && book.stock) {
-    return book.sample + book.stock;
-  } else if (book.stock && book.market) {
-    return book.stock + book.market;
-  } else if (book.sample) {
-    return book.sample;
-  } else if (book.market) {
-    return book.market;
-  } else {
-    return 0;
-  }
+  return book.events ? calcStock(book.events) : 0;
+};
+
+const calcStock = (events: EventStock) => {
+  return Object.values(events).reduce(
+    (previous, current) => previous + current,
+    0
+  );
 };

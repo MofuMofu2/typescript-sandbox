@@ -7,17 +7,21 @@ import {
 const fanbooks = [
   {
     total: 306,
-    sample: 3,
-    stock: 80,
-    market: 164,
     price: 1000,
+    events: {
+      sample: 3,
+      stock: 80,
+      market: 164,
+    },
   },
   {
     total: 104,
-    sample: 2,
-    stock: 32,
-    market: 35,
     price: 1000,
+    events: {
+      sample: 2,
+      stock: 32,
+      market: 35,
+    },
   },
   {
     total: 20,
@@ -34,9 +38,11 @@ describe("一冊の同人誌の売り上げ数を計算する", () => {
     expect(
       countBookSales({
         total: 306,
-        stock: 80,
-        market: 164,
         price: 1000,
+        events: {
+          stock: 80,
+          market: 164,
+        },
       })
     ).toBe(62);
   });
@@ -45,8 +51,10 @@ describe("一冊の同人誌の売り上げ数を計算する", () => {
     expect(
       countBookSales({
         total: 306,
-        market: 164,
         price: 1000,
+        events: {
+          market: 164,
+        },
       })
     ).toBe(142);
   });
@@ -55,8 +63,10 @@ describe("一冊の同人誌の売り上げ数を計算する", () => {
     expect(
       countBookSales({
         total: 306,
-        sample: 3,
         price: 1000,
+        events: {
+          sample: 3,
+        },
       })
     ).toBe(303);
   });
@@ -74,9 +84,11 @@ describe("一冊の同人誌の売り上げ数を計算する", () => {
     expect(
       countBookSales({
         total: 306,
-        sample: 3,
-        stock: 303,
         price: 1000,
+        events: {
+          sample: 3,
+          stock: 303,
+        },
       })
     ).toBe(0);
   });

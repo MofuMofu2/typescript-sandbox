@@ -2,6 +2,10 @@ export const enemyAttack = (enemy: number, weapon: number) => {
   return enemy + weapon;
 };
 
+export const blockPower = (armor: number, meal: number) => {
+  return armor + meal;
+};
+
 export const calcBlock = (attack: number, armor: number) => {
   const point = calcDamage(attack, armor);
   return point > 0 ? point : 1;

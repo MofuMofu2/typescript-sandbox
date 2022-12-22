@@ -1,3 +1,3 @@
-export const attack = (weapon: number) => {
-  return weapon;
+export const attack = (weapon: number, armor: number = 0) => {
+  return weapon + armor;
 };

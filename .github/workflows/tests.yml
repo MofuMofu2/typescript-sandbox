@@ -11,15 +11,15 @@ jobs:
     - uses: actions/checkout@v3
     - name: Check Date
       run: date
-    - name: Set timezone
-      env:
-        TZ: 'Asia/Tokyo'
-      run: date
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+      env:
+        TZ: 'Asia/Tokyo'
     - run: date
+      env:
+        TZ: 'Asia/Tokyo'
     - run: npm ci
     - run: npm test

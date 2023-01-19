@@ -7,6 +7,8 @@ jobs:
     strategy:
       matrix:
         node-version: ["18.x"]
+    env:
+      TZ: 'Asia/Tokyo'
     steps:
     - uses: actions/checkout@v3
     - name: Check Date
@@ -16,10 +18,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      env:
-        TZ: 'Asia/Tokyo'
     - run: date
-      env:
-        TZ: 'Asia/Tokyo'
     - run: npm ci
     - run: npm test

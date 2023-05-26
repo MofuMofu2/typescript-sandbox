@@ -3,3 +3,5 @@ export const sortNumberList = (list: string[]): string[] => {
     return Number(a) - Number(b);
   });
 };
+
+export const sortUserList = (list: any[], key: string): any[] => {};

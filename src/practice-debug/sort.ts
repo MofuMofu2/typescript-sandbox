@@ -4,4 +4,27 @@ export const sortNumberList = (list: string[]): string[] => {
   });
 };
 
-export const sortUserList = (list: any[], key: string): any[] => {};
+type User = {
+  id: number;
+  name: string;
+};
+
+export const sortUserList = (userList: User[], sortKey: keyof User) => {
+  switch (sortKey) {
+    case "id":
+      sortUserListById(userList);
+      break;
+    case "name":
+      sortUserListByName(userList);
+  }
+};
+
+const sortUserListById = (userList: User[]) => {
+  return userList.sort((a: User, b: User) => {
+    return a.id - b.id;
+  });
+};
+
+const sortUserListByName = (userList: User[]) => {
+  return userList.sort();
+};

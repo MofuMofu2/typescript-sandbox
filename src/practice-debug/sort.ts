@@ -12,10 +12,9 @@ type User = {
 export const sortUserList = (userList: User[], sortKey: keyof User) => {
   switch (sortKey) {
     case "id":
-      sortUserListById(userList);
-      break;
+      return sortUserListById(userList);
     case "name":
-      sortUserListByName(userList);
+      return sortUserListByName(userList);
   }
 };
 
@@ -26,5 +25,5 @@ const sortUserListById = (userList: User[]) => {
 };
 
 const sortUserListByName = (userList: User[]) => {
-  return userList.sort();
+  return userList.sort((a: User, b: User) => a.name.localeCompare(b.name));
 };

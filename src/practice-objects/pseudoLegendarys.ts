@@ -33,6 +33,6 @@ export const through5 = (): PseudoLegendary[] => {
     createPseudoLegendaryInfo(garchomp),
     createPseudoLegendaryInfo(hydreigon),
   ];
-  const through5List = through3List.concat(pokemons);
+  const through5List = [...through3List, ...pokemons];
   return through5List;
 };

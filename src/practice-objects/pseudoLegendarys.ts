@@ -3,6 +3,8 @@ import dragonite from "../assets/149.json";
 import tyranitar from "../assets/248.json";
 import salamence from "../assets/373.json";
 import metagross from "../assets/376.json";
+import garchomp from "../assets/445.json";
+import hydreigon from "../assets/635.json";
 
 type PseudoLegendary = {
   id: number; // 図鑑番号
@@ -18,11 +20,19 @@ export const createPseudoLegendaryInfo = (param: PokeAPI): PseudoLegendary => {
   };
 };
 
-export const through3 = (): PseudoLegendary[] => {
-  return [
-    createPseudoLegendaryInfo(dragonite),
-    createPseudoLegendaryInfo(tyranitar),
-    createPseudoLegendaryInfo(salamence),
-    createPseudoLegendaryInfo(metagross),
+export const through3 = [
+  createPseudoLegendaryInfo(dragonite),
+  createPseudoLegendaryInfo(tyranitar),
+  createPseudoLegendaryInfo(salamence),
+  createPseudoLegendaryInfo(metagross),
+];
+
+export const through5 = (): PseudoLegendary[] => {
+  const through3List = through3;
+  const pokemons = [
+    createPseudoLegendaryInfo(garchomp),
+    createPseudoLegendaryInfo(hydreigon),
   ];
+  const through5List = [...through3List, ...pokemons];
+  return through5List;
 };

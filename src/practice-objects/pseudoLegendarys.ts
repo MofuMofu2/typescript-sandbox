@@ -28,10 +28,11 @@ export const through3 = [
 ];
 
 export const through5 = (): PseudoLegendary[] => {
-  const list = through3;
-  list.push(
+  const through3List = through3;
+  const pokemons = [
     createPseudoLegendaryInfo(garchomp),
-    createPseudoLegendaryInfo(hydreigon)
-  );
-  return list;
+    createPseudoLegendaryInfo(hydreigon),
+  ];
+  const through5List = through3List.concat(pokemons);
+  return through5List;
 };

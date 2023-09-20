@@ -11,3 +11,15 @@ const user: User = {
 };
 
 console.log(user);
+
+interface Person {
+  name: string;
+  age: number;
+}
+
+const person: Person = {
+  name: "aoko",
+  age: 31,
+};
+
+console.log(person);

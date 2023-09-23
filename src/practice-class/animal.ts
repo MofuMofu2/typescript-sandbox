@@ -4,7 +4,9 @@ type AnimalModel = {
 };
 
 class Animal {
+  animal: AnimalModel;
   constructor(animal: AnimalModel) {
+    this.animal = animal;
     console.log(`${animal.name} is ${animal.kind}.`);
   }
 }

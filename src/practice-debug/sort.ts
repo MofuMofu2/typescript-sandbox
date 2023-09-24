@@ -4,7 +4,7 @@ export const sortNumberList = (list: string[]): string[] => {
   });
 };
 
-type User = {
+export type User = {
   id: number;
   name: string;
 };

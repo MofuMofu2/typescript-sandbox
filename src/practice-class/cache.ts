@@ -1,20 +1,14 @@
 class CacheClass<K, V> {
-  key: K;
-  value: V;
-
+  private cache: Map<K, V>;
   constructor(key: K, value: V) {
-    this.key = key;
-    this.value = value;
+    this.cache = new Map<K, V>();
   }
 
   set(key: K, value: V) {
-    this.key = key;
-    this.value = value;
+    this.cache.set(key, value);
   }
 
   get(key: K): V | undefined {
-    if (this.key === key) {
-      return this.value;
-    }
+    return this.cache.get(key);
   }
 }

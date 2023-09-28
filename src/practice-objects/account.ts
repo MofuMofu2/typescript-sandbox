@@ -3,10 +3,10 @@ type Account = {
   name: string;
   email: string;
   isAdmin: boolean;
-  posts: Posts[];
+  posts: Post[];
 };
 
-type Posts = {
+type Post = {
   postId: number;
   title: string;
   content: string;

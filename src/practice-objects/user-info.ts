@@ -4,8 +4,8 @@ type UserInfo = {
   isAdmin: boolean;
 };
 
-export const filterAdminUsers = (userLists: UserInfo[]): UserInfo[] => {
-  return userLists.filter((user) => {
+export const filterAdminUsers = (userList: UserInfo[]): UserInfo[] => {
+  return userList.filter((user) => {
     return user.isAdmin === true;
   });
 };

@@ -10,7 +10,7 @@ const users: UserInfo[] = [
   { id: 3, name: "Doe", isAdmin: true },
 ];
 
-export const filterAdminUsers = (userLists: UserInfo[]): UserInfo[] | [] => {
+export const filterAdminUsers = (userLists: UserInfo[]): UserInfo[] => {
   return userLists.filter((user) => {
     return user.isAdmin === true;
   });

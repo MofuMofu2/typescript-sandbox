@@ -12,6 +12,6 @@ const users: UserInfo[] = [
 
 export const filterAdminUsers = (userLists: UserInfo[]): UserInfo[] | [] => {
   return userLists.filter((user) => {
-    user.isAdmin === true;
+    return user.isAdmin === true;
   });
 };

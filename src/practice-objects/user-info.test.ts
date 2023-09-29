@@ -12,3 +12,9 @@ it("isAdminがtrueのユーザーリストだけ抽出する", () => {
     { id: 3, name: "Doe", isAdmin: true },
   ]);
 });
+
+it("falseだけの場合は空配列を返す", () => {
+  expect(filterAdminUsers([{ id: 2, name: "Jane", isAdmin: false }])).toEqual(
+    []
+  );
+});

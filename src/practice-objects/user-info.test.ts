@@ -33,4 +33,8 @@ describe("ユーザーリストを大文字にして返せる", () => {
       { id: 3, name: "DOE", isAdmin: true },
     ]);
   });
+
+  it("空配列が引数に来たときは空配列を返す", () => {
+    expect(convertNameUpperCase([])).toEqual([]);
+  });
 });

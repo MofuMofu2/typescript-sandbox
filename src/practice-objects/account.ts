@@ -11,3 +11,7 @@ type Post = {
   title: string;
   content: string;
 };
+
+export const countPost = (account: Account): number => {
+  return account.posts.length;
+};

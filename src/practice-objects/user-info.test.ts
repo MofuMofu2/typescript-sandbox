@@ -25,8 +25,8 @@ describe("ユーザーリストの抽出ができる", () => {
   });
 });
 
-describe("ユーザーリストを大文字にして返せる", () => {
-  it("isAdminがtrueのユーザーリストだけ抽出する", () => {
+describe("ユーザーリストの中の名前を大文字にして返す", () => {
+  it("ユーザー名を大文字にして返す", () => {
     expect(convertNameUpperCase(testData)).toEqual([
       { id: 1, name: "JOHN", isAdmin: true },
       { id: 2, name: "JANE", isAdmin: false },

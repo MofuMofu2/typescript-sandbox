@@ -15,3 +15,10 @@ type Post = {
 export const countPost = (account: Account): number => {
   return account.posts.length;
 };
+
+export const accountProperty = <T extends keyof Account>(
+  account: Account,
+  property: T
+): Account[T] => {
+  return account[property];
+};

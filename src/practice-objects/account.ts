@@ -16,9 +16,9 @@ export const countPost = (account: Account): number => {
   return account.posts.length;
 };
 
-export const accountProperty = (
+export const accountProperty = <T extends keyof Account>(
   account: Account,
-  property: keyof Account
-): string | number | boolean | Post[] => {
+  property: T
+): Account[T] => {
   return account[property];
 };

@@ -2,6 +2,7 @@
   "name": "sandbox",
   "version": "1.0.0",
   "scripts": {
+    "compile": "npx tsc",
     "test": "jest",
     "format": "prettier -w src/*",
     "prepare": "husky install"

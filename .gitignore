@@ -77,3 +77,4 @@ typings/
 
 # compiled js
 *.js
+dist/

@@ -14,3 +14,15 @@ export const typeCheck = (num: number) => {
 
   return scientist;
 };
+
+export const typeOfCheck = (num: number) => {
+  let researcher = num > 0.5 ? "Rosalind Franklin" : 51;
+
+  if (typeof researcher === "string") {
+    researcher = researcher.toLowerCase();
+  } else {
+    researcher = researcher.toFixed();
+  }
+
+  return researcher;
+};

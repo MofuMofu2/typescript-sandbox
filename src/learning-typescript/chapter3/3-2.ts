@@ -4,3 +4,13 @@ export const changeUpperCase = () => {
 
   return admiral.toUpperCase();
 };
+
+export const typeCheck = (num: number) => {
+  let scientist = num > 0.5 ? "Rosalind Franklin" : 51;
+
+  if (scientist === "Rosalind Franklin") {
+    scientist = scientist.toUpperCase();
+  }
+
+  return scientist;
+};
